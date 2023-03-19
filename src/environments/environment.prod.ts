@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  COUNTRIES_API: 'https://restcountries.com/v3.1',
+  production: true,
 };
