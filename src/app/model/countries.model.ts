@@ -1,4 +1,4 @@
-export interface COUNTRES {
+export interface Country {
   name: Name;
   flags: Flags;
   tld: string[];
