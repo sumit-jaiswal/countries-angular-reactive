@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { COUNTRES } from 'src/app/model/countries.model';
 import { CountriesService } from 'src/app/shared/services/countries.service';
+import { LoadingService } from 'src/app/shared/services/loading.service';
 
 @Component({
   selector: 'app-countries',
@@ -10,7 +11,10 @@ import { CountriesService } from 'src/app/shared/services/countries.service';
 export class CountriesComponent implements OnInit {
   public countries: COUNTRES[] | undefined;
 
-  constructor(private countriesService: CountriesService) {
+  constructor(
+    private countriesService: CountriesService,
+    private loading: LoadingService
+  ) {
     console.log('countries loaded');
     this.getCountries();
   }
@@ -18,8 +22,12 @@ export class CountriesComponent implements OnInit {
   ngOnInit(): void {}
 
   getCountries() {
-    this.countriesService.getCountries().subscribe((data: COUNTRES[]) => {
-      this.countries = data;
-    });
+    const loadCountries$ = this.countriesService.getCountries();
+
+    this.loading
+      .showLoaderUntilCompleted(loadCountries$)
+      .subscribe((data: COUNTRES[]) => {
+        this.countries = data;
+      });
   }
 }
