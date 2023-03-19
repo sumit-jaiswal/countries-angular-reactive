@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, shareReplay } from 'rxjs';
+import { map, Observable, shareReplay } from 'rxjs';
 import { COUNTRES } from 'src/app/model/countries.model';
 import { environment } from 'src/environments/environment';
+import { sortByPopulation } from '../utils/country-filter.util';
 
 @Injectable()
 export class CountriesService {
@@ -16,6 +17,9 @@ export class CountriesService {
             'name,population,region,region,borders,tld,currencies,languages,flags,capital',
         },
       })
-      .pipe(shareReplay());
+      .pipe(
+        map((countres) => sortByPopulation(countres)),
+        shareReplay()
+      );
   }
 }
