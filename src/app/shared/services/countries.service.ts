@@ -18,7 +18,7 @@ export class CountriesService {
         },
       })
       .pipe(
-        map((countres) => sortByPopulation(countres)),
+        map((countres) => countres.sort(sortByPopulation)),
         shareReplay()
       );
   }
