@@ -9,6 +9,10 @@ export interface Country {
   population: number;
   capital: string[];
 }
+export interface Region {
+  name: string;
+  code: string;
+}
 
 interface Flags {
   png: string;
