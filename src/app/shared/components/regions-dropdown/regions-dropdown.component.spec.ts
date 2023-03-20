@@ -8,9 +8,8 @@ describe('RegionsDropdownComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RegionsDropdownComponent ]
-    })
-    .compileComponents();
+      declarations: [RegionsDropdownComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(RegionsDropdownComponent);
     component = fixture.componentInstance;
@@ -19,5 +18,13 @@ describe('RegionsDropdownComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('Should emit value on _onRegionChange', () => {
+    let code = { value: { code: 'IND' } };
+    let emitSpy = spyOn(component.onRegionChange, 'emit');
+    component._onRegionChange(code);
+
+    expect(emitSpy).toHaveBeenCalledWith(code.value.code);
   });
 });
