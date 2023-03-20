@@ -1,4 +1,4 @@
-import { COUNTRIES_MOCK } from 'src/app/testing/countries.mock';
+import { COUNTRIES_MOCK } from 'src/app/testing';
 import { SearchCountryPipe } from './search-country.pipe';
 
 describe('SearchCountryPipe', () => {
