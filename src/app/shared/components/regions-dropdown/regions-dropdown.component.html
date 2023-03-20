@@ -1,0 +1,8 @@
+<p-dropdown
+  styleClass="w-10rem"
+  placeholder="Filter by Region"
+  [options]="regions"
+  [(ngModel)]="selectedRegion"
+  optionLabel="name"
+  (onChange)="_onRegionChange($event)"
+></p-dropdown>
