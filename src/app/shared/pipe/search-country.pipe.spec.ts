@@ -1,7 +1,7 @@
 import { COUNTRIES_MOCK } from 'src/app/testing/countries.mock';
 import { SearchCountryPipe } from './search-country.pipe';
 
-fdescribe('SearchCountryPipe', () => {
+describe('SearchCountryPipe', () => {
   it('Create an instance', () => {
     const pipe = new SearchCountryPipe();
     expect(pipe).toBeTruthy();
