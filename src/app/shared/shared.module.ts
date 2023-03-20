@@ -11,11 +11,31 @@ import { LoadingComponent } from './loading/loading.component';
 
 import { CountriesService } from './services/countries.service';
 import { LoadingService } from './services/loading.service';
+import { RegionsDropdownComponent } from './components/regions-dropdown/regions-dropdown.component';
+import { DropdownModule } from 'primeng/dropdown';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, LoadingComponent],
-  imports: [CommonModule, PanelModule, HttpClientModule, ProgressSpinnerModule],
+  declarations: [
+    HeaderComponent,
+    FooterComponent,
+    LoadingComponent,
+    RegionsDropdownComponent,
+  ],
+  imports: [
+    CommonModule,
+    PanelModule,
+    HttpClientModule,
+    ProgressSpinnerModule,
+    DropdownModule,
+    FormsModule,
+  ],
   providers: [CountriesService],
-  exports: [HeaderComponent, FooterComponent, LoadingComponent],
+  exports: [
+    HeaderComponent,
+    FooterComponent,
+    LoadingComponent,
+    RegionsDropdownComponent,
+  ],
 })
 export class SharedModule {}
