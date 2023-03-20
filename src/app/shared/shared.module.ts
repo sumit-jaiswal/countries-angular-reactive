@@ -14,6 +14,7 @@ import { RegionsDropdownComponent } from './components/regions-dropdown/regions-
 import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
 import { CountryService } from './services/country.service';
+import { SearchCountryPipe } from './pipe/search-country.pipe';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { CountryService } from './services/country.service';
     FooterComponent,
     LoadingComponent,
     RegionsDropdownComponent,
+    SearchCountryPipe,
   ],
   imports: [
     CommonModule,
@@ -36,6 +38,7 @@ import { CountryService } from './services/country.service';
     FooterComponent,
     LoadingComponent,
     RegionsDropdownComponent,
+    SearchCountryPipe,
   ],
 })
 export class SharedModule {}

@@ -20,22 +20,24 @@
 </div>
 
 <div class="grid">
-  <p-card
-    *ngFor="let country of countries$ | async"
-    class="col-12 md:col-4 lg:col-3 p-fluid p-5"
-    styleClass="shadow-4 cursor-pointer"
-    [routerLink]="['/country', country?.cca3]"
-  >
-    <ng-template pTemplate="header">
-      <img [src]="country?.flags?.svg" class="md:h-full" />
-    </ng-template>
-    <h3>{{ country?.name?.common }}</h3>
-    <div class="card">
-      <div class="card-container">
-        <div class="block mb-1">Population: {{ country?.population }}</div>
-        <div class="block mb-1">Region: {{ country?.region }}</div>
-        <div class="block mb-1">Capital: {{ country?.capital }}</div>
+  <ng-container *ngIf="countries$ | async as countries">
+    <p-card
+      *ngFor="let country of countries | searchCountry : searchText"
+      class="col-12 md:col-4 lg:col-3 p-fluid p-5"
+      styleClass="shadow-4 cursor-pointer"
+      [routerLink]="['/country', country?.cca3]"
+    >
+      <ng-template pTemplate="header">
+        <img [src]="country?.flags?.svg" class="md:h-full" />
+      </ng-template>
+      <h3>{{ country?.name?.common }}</h3>
+      <div class="card">
+        <div class="card-container">
+          <div class="block mb-1">Population: {{ country?.population }}</div>
+          <div class="block mb-1">Region: {{ country?.region }}</div>
+          <div class="block mb-1">Capital: {{ country?.capital }}</div>
+        </div>
       </div>
-    </div>
-  </p-card>
+    </p-card>
+  </ng-container>
 </div>
