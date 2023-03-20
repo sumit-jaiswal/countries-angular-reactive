@@ -9,11 +9,11 @@ import { HeaderComponent } from './components/layout/header/header.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { LoadingComponent } from './components/loading/loading.component';
 
-import { CountriesService } from './services/countries.service';
-import { LoadingService } from './services/loading.service';
+import { CountriesStoreService } from './services/countries-store.service';
 import { RegionsDropdownComponent } from './components/regions-dropdown/regions-dropdown.component';
 import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
+import { CountryService } from './services/country.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import { FormsModule } from '@angular/forms';
     DropdownModule,
     FormsModule,
   ],
-  providers: [CountriesService],
+  providers: [CountriesStoreService, CountryService],
   exports: [
     HeaderComponent,
     FooterComponent,
