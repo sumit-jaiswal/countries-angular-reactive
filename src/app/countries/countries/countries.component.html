@@ -2,12 +2,13 @@
   <div class="flex justify-content-between flex-wrap card-container gap-3">
     <div class="m-2">
       <span class="p-input-icon-left">
-        <i class="pi pi-search"></i>
+        <i class="pi pi-search lg:pl-5"></i>
         <input
           type="text"
           pInputText
-          placeholder="Search"
+          placeholder="Search fo country..."
           [(ngModel)]="searchText"
+          class="lg:px-8 py-3"
         />
       </span>
     </div>
@@ -33,9 +34,16 @@
       <h3>{{ country?.name?.common }}</h3>
       <div class="card">
         <div class="card-container">
-          <div class="block mb-1">Population: {{ country?.population }}</div>
-          <div class="block mb-1">Region: {{ country?.region }}</div>
-          <div class="block mb-1">Capital: {{ country?.capital }}</div>
+          <div class="block mb-1">
+            <span class="font-semibold">Population</span>:
+            {{ country?.population }}
+          </div>
+          <div class="block mb-1">
+            <span class="font-semibold">Region</span>: {{ country?.region }}
+          </div>
+          <div class="block mb-1">
+            <span class="font-semibold">Capital</span>: {{ country?.capital }}
+          </div>
         </div>
       </div>
     </p-card>
