@@ -4,7 +4,6 @@ import {
   BehaviorSubject,
   map,
   Observable,
-  shareReplay,
   Subject,
   takeUntil,
   tap,
@@ -15,7 +14,7 @@ import { sortByPopulation } from '../utils/country-filter.util';
 import { LoadingService } from './loading.service';
 
 @Injectable()
-export class CountriesService implements OnDestroy {
+export class CountriesStoreService implements OnDestroy {
   private subject = new BehaviorSubject<Country[]>([]);
 
   public countres$: Observable<Country[]> = this.subject.asObservable();
@@ -26,26 +25,13 @@ export class CountriesService implements OnDestroy {
     this.loadAllCourses();
   }
 
-  getCountries(): Observable<Country[]> {
-    return this.http
-      .get<Country[]>(environment.COUNTRIES_API + '/all', {
-        params: {
-          fields:
-            'name,population,region,region,borders,tld,currencies,languages,flags,capital',
-        },
-      })
-      .pipe(
-        map((countres) => countres.sort(sortByPopulation)),
-        shareReplay()
-      );
-  }
-
   private loadAllCourses() {
+    let countryFields =
+      'name,population,region,region,borders,tld,currencies,languages,flags,capital,cca3';
     const loadCourses$ = this.http
       .get<Country[]>(environment.COUNTRIES_API + '/all', {
         params: {
-          fields:
-            'name,population,region,region,borders,tld,currencies,languages,flags,capital',
+          fields: countryFields,
         },
       })
       .pipe(
