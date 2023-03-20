@@ -36,13 +36,14 @@ export class CountryComponent implements OnInit, OnDestroy {
             takeUntil(this.destroy$),
             mergeMap((country) => {
               const codes = country[0]?.borders?.join(',');
-
-              return this.countryService.getCountryByCodeParam(codes).pipe(
-                map((borderCountries) => {
-                  country[0].bordersCountry = borderCountries;
-                  return country[0];
-                })
-              );
+              if (codes)
+                return this.countryService.getCountryByCodeParam(codes).pipe(
+                  map((borderCountries) => {
+                    country[0].bordersCountry = borderCountries;
+                    return country[0];
+                  })
+                );
+              return country;
             })
           )
           .subscribe((countryDetails) => {
