@@ -8,12 +8,14 @@ export interface Country {
   borders: string[];
   population: number;
   capital: string[];
+  cca3: string;
+  subregion: string;
+  bordersCountry?: Country[];
 }
 export interface Region {
   name: string;
   code: string;
 }
-
 interface Flags {
   png: string;
   svg: string;
