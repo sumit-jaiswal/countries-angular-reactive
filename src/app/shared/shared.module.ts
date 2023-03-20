@@ -5,9 +5,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { PanelModule } from 'primeng/panel';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
-import { HeaderComponent } from './layout/header/header.component';
-import { FooterComponent } from './layout/footer/footer.component';
-import { LoadingComponent } from './loading/loading.component';
+import { HeaderComponent } from './components/layout/header/header.component';
+import { FooterComponent } from './components/layout/footer/footer.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 import { CountriesService } from './services/countries.service';
 import { LoadingService } from './services/loading.service';
