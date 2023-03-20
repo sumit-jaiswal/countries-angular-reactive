@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { map, mergeMap, Subject, takeUntil } from 'rxjs';
+import { finalize, map, mergeMap, Subject, takeUntil } from 'rxjs';
 import { Country } from 'src/app/model/countries.model';
 import { CountryService } from 'src/app/shared/services/country.service';
 import { LoadingService } from 'src/app/shared/services/loading.service';
@@ -23,7 +23,12 @@ export class CountryComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.getCountryDetails();
   }
-
+  /**
+   * Get country Details
+   * if borders available then call API to get all borders contires
+   * Add borders contries in same object.bordersCountry
+   * If no border then no API will calls
+   */
   getCountryDetails() {
     this.route.params.pipe(takeUntil(this.destroy$)).subscribe((params) => {
       this.loader.loadingOn();
@@ -44,10 +49,10 @@ export class CountryComponent implements OnInit, OnDestroy {
                   })
                 );
               return country;
-            })
+            }),
+            finalize(() => this.loader.loadingOff())
           )
           .subscribe((countryDetails) => {
-            this.loader.loadingOff();
             this.countryDetails = countryDetails;
           });
       }

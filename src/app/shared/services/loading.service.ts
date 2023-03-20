@@ -11,7 +11,12 @@ export class LoadingService {
   loading$: Observable<boolean> = this.loadingSubject.asObservable();
 
   constructor() {}
-
+  /**
+   *
+   * @param obs$ passed any Obsrable
+   * @returns same obs$
+   * Methode use to manage loader on API call
+   */
   showLoaderUntilCompleted<T>(obs$: Observable<T>): Observable<T> {
     return of(null).pipe(
       tap(() => this.loadingOn()),
@@ -19,11 +24,15 @@ export class LoadingService {
       finalize(() => this.loadingOff())
     );
   }
-
+  /**
+   * loadingOn method will use for emit loader ON
+   */
   loadingOn() {
     this.loadingSubject.next(true);
   }
-
+  /**
+   * loadingOff method will use for emit loader OFF
+   */
   loadingOff() {
     this.loadingSubject.next(false);
   }

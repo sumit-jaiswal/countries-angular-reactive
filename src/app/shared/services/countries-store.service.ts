@@ -25,6 +25,11 @@ export class CountriesStoreService implements OnDestroy {
     this.loadAllCountries();
   }
 
+  /**
+   * Store Countries on initialization of service
+   * Sort countries by population
+   * Emit result in ountres$
+   */
   private loadAllCountries() {
     let countryFields =
       'name,population,region,region,borders,tld,currencies,languages,flags,capital,cca3';
@@ -42,17 +47,18 @@ export class CountriesStoreService implements OnDestroy {
 
     this.loading.showLoaderUntilCompleted(loadCountries$).subscribe();
   }
-
+  /**
+   *
+   * @param region : Should be string
+   * @returns if no selection in region then return without filter
+   * if retion passed filter the data by region and return it
+   */
   filterByRegion(region: string): Observable<Country[]> {
     if (region == 'all') {
       return this.countres$;
     }
     return this.countres$.pipe(
-      map((courses) =>
-        courses
-          ?.filter((country) => country.region == region)
-          .sort(sortByPopulation)
-      )
+      map((courses) => courses?.filter((country) => country.region == region))
     );
   }
 
