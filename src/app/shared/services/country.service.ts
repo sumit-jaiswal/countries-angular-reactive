@@ -9,12 +9,6 @@ import { LoadingService } from './loading.service';
 export class CountryService {
   constructor(private http: HttpClient, private loading: LoadingService) {}
 
-  getCountryByCode(code: string): Observable<Country[]> {
-    return this.http
-      .get<Country[]>(environment.COUNTRIES_API + '/alpha/' + code)
-      .pipe(shareReplay());
-  }
-
   getCountryByCodeParam(code: string): Observable<Country[]> {
     return this.http
       .get<Country[]>(environment.COUNTRIES_API + '/alpha', {
