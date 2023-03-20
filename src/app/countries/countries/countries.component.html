@@ -24,7 +24,7 @@
     *ngFor="let country of countries$ | async"
     class="col-12 md:col-4 lg:col-3 p-fluid p-5"
     styleClass="shadow-4 cursor-pointer"
-    [routerLink]="['/countries', country?.name?.common]"
+    [routerLink]="['/country', country?.cca3]"
   >
     <ng-template pTemplate="header">
       <img [src]="country?.flags?.svg" class="md:h-full" />
