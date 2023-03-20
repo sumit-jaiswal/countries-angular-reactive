@@ -44,7 +44,6 @@ export class CountriesStoreService implements OnDestroy {
   }
 
   filterByRegion(region: string): Observable<Country[]> {
-    console.log(region);
     if (region == 'all') {
       return this.countres$;
     }
