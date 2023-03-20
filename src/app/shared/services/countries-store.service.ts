@@ -22,13 +22,13 @@ export class CountriesStoreService implements OnDestroy {
   private destroy$ = new Subject();
 
   constructor(private http: HttpClient, private loading: LoadingService) {
-    this.loadAllCourses();
+    this.loadAllCountries();
   }
 
-  private loadAllCourses() {
+  private loadAllCountries() {
     let countryFields =
       'name,population,region,region,borders,tld,currencies,languages,flags,capital,cca3';
-    const loadCourses$ = this.http
+    const loadCountries$ = this.http
       .get<Country[]>(environment.COUNTRIES_API + '/all', {
         params: {
           fields: countryFields,
@@ -40,7 +40,7 @@ export class CountriesStoreService implements OnDestroy {
         tap((countres) => this.subject.next(countres))
       );
 
-    this.loading.showLoaderUntilCompleted(loadCourses$).subscribe();
+    this.loading.showLoaderUntilCompleted(loadCountries$).subscribe();
   }
 
   filterByRegion(region: string): Observable<Country[]> {
