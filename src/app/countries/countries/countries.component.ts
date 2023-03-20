@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { COUNTRES } from 'src/app/model/countries.model';
+import { Observable } from 'rxjs';
+import { Country } from 'src/app/model/countries.model';
 import { CountriesService } from 'src/app/shared/services/countries.service';
-import { LoadingService } from 'src/app/shared/services/loading.service';
 
 @Component({
   selector: 'app-countries',
@@ -9,25 +9,20 @@ import { LoadingService } from 'src/app/shared/services/loading.service';
   styleUrls: ['./countries.component.scss'],
 })
 export class CountriesComponent implements OnInit {
-  public countries: COUNTRES[] | undefined;
+  public countries$: Observable<Country[]> | undefined;
+  public searchText = '';
 
-  constructor(
-    private countriesService: CountriesService,
-    private loading: LoadingService
-  ) {
-    console.log('countries loaded');
+  constructor(private countriesService: CountriesService) {}
+
+  ngOnInit(): void {
     this.getCountries();
   }
 
-  ngOnInit(): void {}
-
   getCountries() {
-    const loadCountries$ = this.countriesService.getCountries();
+    this.countries$ = this.countriesService.countres$;
+  }
 
-    this.loading
-      .showLoaderUntilCompleted(loadCountries$)
-      .subscribe((data: COUNTRES[]) => {
-        this.countries = data;
-      });
+  onRegionChange(region: string) {
+    this.countries$ = this.countriesService.filterByRegion(region);
   }
 }
