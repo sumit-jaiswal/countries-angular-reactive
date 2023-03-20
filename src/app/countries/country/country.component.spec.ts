@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { CountriesModule } from '../countries.module';
 
 import { CountryComponent } from './country.component';
 
@@ -8,9 +11,9 @@ describe('CountryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CountryComponent ]
-    })
-    .compileComponents();
+      imports: [CountriesModule, SharedModule, RouterTestingModule],
+      declarations: [CountryComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CountryComponent);
     component = fixture.componentInstance;
