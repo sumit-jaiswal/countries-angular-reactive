@@ -4,7 +4,7 @@ import { finalize, map, mergeMap, Subject, takeUntil } from 'rxjs';
 import { Country } from 'src/app/model/countries.model';
 import { CountryService } from 'src/app/shared/services/country.service';
 import { LoadingService } from 'src/app/shared/services/loading.service';
-import { restructureCountryData } from 'src/app/shared/utils/country-filter.util';
+import { CountryUtil } from 'src/app/shared/utils/country.util';
 
 @Component({
   selector: 'app-country',
@@ -52,7 +52,7 @@ export class CountryComponent implements OnInit, OnDestroy {
               return country;
             }),
             map((country) =>
-              country ? restructureCountryData(country) : country
+              country ? CountryUtil.restructureCountryData(country) : country
             ),
             finalize(() => this.loader.loadingOff())
           )

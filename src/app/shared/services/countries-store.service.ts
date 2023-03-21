@@ -10,7 +10,7 @@ import {
 } from 'rxjs';
 import { Country } from 'src/app/model/countries.model';
 import { environment } from 'src/environments/environment';
-import { sortByPopulation } from '../utils/country-filter.util';
+import { CountryUtil } from '../utils/country.util';
 import { LoadingService } from './loading.service';
 
 @Injectable()
@@ -41,7 +41,7 @@ export class CountriesStoreService implements OnDestroy {
       })
       .pipe(
         takeUntil(this.destroy$),
-        map((countres) => countres.sort(sortByPopulation)),
+        map((countres) => countres.sort(CountryUtil.sortByPopulation)),
         tap((countres) => this.subject.next(countres))
       );
 
