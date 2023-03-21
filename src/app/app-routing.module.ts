@@ -7,6 +7,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./countries/countries.module').then((x) => x.CountriesModule),
   },
+  { path: '**', redirectTo: '/' },
 ];
 
 @NgModule({
