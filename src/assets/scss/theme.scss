@@ -1,29 +1,16 @@
 @import url(founts.scss);
 @import url(theme-color.scss);
 
-// Header start
-.p-panel {
-  .p-panel-header {
-    padding: 0rem;
-  }
-}
-// Header End
-.p-button {
-  padding: 0.4rem 1rem;
-}
-back-arrow-left {
-  padding-right: 0.5rem;
-}
-
 h2,
 h3 {
   font-weight: 700;
   color: hsl(200, 15%, 8%);
 }
 
-.p-input-icon-left {
-  > .p-inputtext {
-    padding: 1rem 1rem 1rem 4rem;
+// Header start
+.p-panel {
+  .p-panel-header {
+    padding: 0rem;
   }
 }
 header {
@@ -33,6 +20,18 @@ header {
   font-size: 1.2rem;
   border-bottom: 1px solid rgb (246 234 229 / 60%);
   box-shadow: 0px 7px 7px -5px rgba(0, 0, 0, 0.1);
+}
+// Header End
+.p-button {
+  padding: 0.4rem 1rem;
+}
+back-arrow-left {
+  padding-right: 0.5rem;
+}
+.p-input-icon-left {
+  > .p-inputtext {
+    padding: 1rem 1rem 1rem 4rem;
+  }
 }
 .p-button {
   padding: 0.2rem 0.9rem;
@@ -48,12 +47,10 @@ header {
 .p-button.p-button-raised {
   color: hsl(0, 0%, 98%);
 }
-
 .container {
   background-color: hsl(0, 0%, 98%);
   height: 100vh;
 }
-
 .p-dropdown {
   .p-dropdown-label.p-placeholder {
     color: $dark-blue-color;
