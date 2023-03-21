@@ -13,16 +13,20 @@ export function generateArrayByObj<T>(obj: {}): T[] {
 }
 
 export function restructureCountryData(country: Country): Country {
-  console.log(generateArrayByObj<CurrenciesStr>(country.currencies));
-  country._currencies = parseCurrenciesObject(country);
-  country._languages = generateArrayByObj<CurrenciesStr>(
-    country.languages
-  ).join(', ');
-  country._tld = country.tld.join(', ');
+  if (country) {
+    country._currencies = parseCurrenciesObject(country);
+    country._languages = country.languages
+      ? generateArrayByObj<CurrenciesStr>(country.languages).join(', ')
+      : '';
+    country._tld = country.tld ? country.tld.join(', ') : '';
+  }
   return country;
 }
 
 function parseCurrenciesObject(country: Country): string {
-  const correncyArr = generateArrayByObj<CurrenciesStr>(country.currencies);
-  return correncyArr.map((currecy) => currecy.name).join(', ');
+  if (country.currencies) {
+    const correncyArr = generateArrayByObj<CurrenciesStr>(country.currencies);
+    return correncyArr.map((currecy) => currecy.name).join(', ');
+  }
+  return '';
 }

@@ -51,7 +51,9 @@ export class CountryComponent implements OnInit, OnDestroy {
                 );
               return country;
             }),
-            map((country) => restructureCountryData(country)),
+            map((country) =>
+              country ? restructureCountryData(country) : country
+            ),
             finalize(() => this.loader.loadingOff())
           )
           .subscribe((countryDetails) => {
