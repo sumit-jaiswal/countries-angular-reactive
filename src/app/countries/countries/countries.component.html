@@ -25,7 +25,7 @@
     <p-card
       *ngFor="let country of countries | searchCountry : searchText"
       class="col-12 md:col-4 lg:col-3 p-fluid p-5"
-      styleClass="shadow-4 cursor-pointer"
+      styleClass="cursor-pointer"
       [routerLink]="['/country', country?.cca3]"
     >
       <ng-template pTemplate="header">
