@@ -1,61 +1,67 @@
 <div class="p-4">
-  <button
-    pButton
-    class="p-button-raised p-button-text"
-    type="button"
-    icon="pi pi-arrow-left back-arrow-left"
-    iconPos="left"
-    routerLink="/"
-  >
-    Back
-  </button>
+  <div class="py-4">
+    <button
+      pButton
+      class="p-button-raised p-button-text px-4 lg:px-6 py-2 text-color-secondary"
+      type="button"
+      icon="pi pi-arrow-left pr-3"
+      iconPos="left"
+      routerLink="/"
+    >
+      Back
+    </button>
+  </div>
 
   <div class="grid py-5" *ngIf="countryDetails">
-    <div class="col-12 lg:col-6 p-fluid">
+    <div class="col-12 lg:col-6 p-fluid lg:pr-8">
       <img [src]="countryDetails.flags.svg" class="max-w-full" />
     </div>
-    <div class="col-12 lg:col-6 p-fluid">
-      <div class="card">
-        <div class="card-container">
-          <div>
-            <div class="block mb-1">
-              Native Name:: {{ countryDetails.name.common }}
-            </div>
-            <div class="block mb-1">
-              Population: {{ countryDetails.population }}
-            </div>
-            <div class="block mb-1">
-              Sub Region: {{ countryDetails.subregion }}
-            </div>
-            <div class="block mb-1">
-              Capital:
-              {{ countryDetails.capital }}
-            </div>
+    <div class="col-12 lg:col-6 p-fluid pt-4">
+      <h2>{{ countryDetails.name.common }}</h2>
+      <div class="flex flex-wrap row h-full">
+        <div class="flex-none col-6">
+          <div class="block mb-1">
+            <span class="font-semibold">Native Name:</span>
+            {{ countryDetails.name.common }}
           </div>
-          <div>
-            <div class="block mb-1">
-              Top Lavel Domain: {{ countryDetails.population }}
-            </div>
-
-            <div class="block mb-1">
-              Currencies:
-              <!-- {{ countryDetails?.currencies }} -->
-            </div>
-            <div class="block mb-1">
-              Languages:
-              <!-- {{ countryDetails?.languages }} -->
-            </div>
+          <div class="block mb-1">
+            <span class="font-semibold">Population:</span>
+            {{ countryDetails.population }}
+          </div>
+          <div class="block mb-1">
+            <span class="font-semibold">Sub Region:</span>
+            {{ countryDetails.subregion }}
+          </div>
+          <div class="block mb-1">
+            <span class="font-semibold">Capital:</span>
+            {{ countryDetails.capital }}
           </div>
         </div>
+        <div class="flex-none col-6">
+          <div class="block mb-1">
+            <span class="font-semibold">Top Lavel Domain:</span>
+            {{ countryDetails._tld }}
+          </div>
 
-        <div>
-          Borders:
+          <div class="block mb-1">
+            <span class="font-semibold">Currencies:</span>
+            {{ countryDetails._currencies }}
+          </div>
+          <div class="block mb-1">
+            <span class="font-semibold">Languages:</span>
+            {{ countryDetails._languages }}
+          </div>
+        </div>
+        <div class="flex-none col-12" *ngIf="countryDetails?.bordersCountry">
+          <span class="font-semibold vertical-align-super"
+            >Border Countries:</span
+          >
           <button
             *ngFor="let borderCountry of countryDetails?.bordersCountry"
             pButton
             pRipple
             type="button"
-            class="p-button-raised p-button-text"
+            class="p-button-raised p-button-text h-auto w-auto m-2 text-color-secondary"
             [routerLink]="['/country', borderCountry?.cca3]"
           >
             {{ borderCountry?.name?.common }}
