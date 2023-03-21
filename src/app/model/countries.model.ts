@@ -11,6 +11,9 @@ export interface Country {
   cca3: string;
   subregion: string;
   bordersCountry?: Country[];
+  _currencies?: string;
+  _languages?: string;
+  _tld?: string;
 }
 export interface Region {
   name: string;
@@ -342,7 +345,7 @@ interface Currencies {
   OMR?: CurrenciesStr;
 }
 
-interface CurrenciesStr {
+export interface CurrenciesStr {
   name: string;
   symbol: string;
 }
