@@ -27,13 +27,18 @@ h3 {
   }
 }
 header {
-  height: 3rem;
-  top: 0px;
-  box-shadow: 0 3px 0px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-    0 0px 0px 0 rgba(0, 0, 0, 0.12);
+  z-index: 1010;
+  position: relative;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-bottom: 1px solid rgb (246 234 229 / 60%);
+  box-shadow: 0px 7px 7px -5px rgba(0, 0, 0, 0.1);
 }
 .p-button {
   padding: 0.2rem 0.9rem;
+}
+.p-inputtext {
+  font-family: "Nunito Sans" !important;
 }
 .p-component {
   font-family: "Nunito Sans" !important;
@@ -46,10 +51,14 @@ header {
 
 .container {
   background-color: hsl(0, 0%, 98%);
+  height: 100vh;
 }
 
 .p-dropdown {
   .p-dropdown-label.p-placeholder {
-    color: hsl(200, 15%, 8%);
+    color: $dark-blue-color;
   }
+}
+.p-card {
+  background: hsl(0, 0%, 100%);
 }

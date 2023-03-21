@@ -31,9 +31,9 @@
       <ng-template pTemplate="header">
         <img [src]="country?.flags?.svg" class="md:h-full" />
       </ng-template>
-      <h3>{{ country?.name?.common }}</h3>
       <div class="card">
         <div class="card-container">
+          <h3>{{ country?.name?.common }}</h3>
           <div class="block mb-1">
             <span class="font-semibold">Population</span>:
             {{ country?.population }}
