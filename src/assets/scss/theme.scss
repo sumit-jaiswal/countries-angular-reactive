@@ -57,6 +57,11 @@ back-arrow-left {
     color: $dark-blue-color;
   }
 }
+li.p-ripple.p-element.p-dropdown-item {
+  padding-left: 1.4rem;
+  font-weight: 600;
+}
+
 .p-card {
   background: hsl(0, 0%, 100%);
 }
