@@ -40,6 +40,8 @@ There are no assets for this challenge, as the country flags will be pulled from
 
 ### Application Preview
 
+Click - [Live Preview](https://stackblitz.com/edit/countries-angular-reactive?embed=1&file=src/app/app.component.ts)
+
 #### Home Page:
 ![home-page-list-of-counties](https://github.com/sumit-jaiswal/counties-angular-reactive/blob/master/design/desktop-home.jpg?raw=true) 
 
