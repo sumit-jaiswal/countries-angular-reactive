@@ -38,6 +38,19 @@ In this project, you will find mobile and desktop designs for both pages. The de
 
 There are no assets for this challenge, as the country flags will be pulled from the [REST Countries API](https://restcountries.com/#api-endpoints-v2) and you can use an icon font library for the icons.
 
+### Application Preview
+
+#### Home Page:
+![home-page-list-of-counties](https://github.com/sumit-jaiswal/counties-angular-reactive/blob/master/design/desktop-home.jpg?raw=true) 
+
+#### Details page:
+![details-page-single-county](https://github.com/sumit-jaiswal/counties-angular-reactive/blob/master/design/desktop-detail.jpg) 
+
+#### Mobile view Home Page:
+![home-page-list-of-counties-mobile](https://github.com/sumit-jaiswal/counties-angular-reactive/blob/master/design/mobile-design-home.jpg) 
+
+#### Mobile view Details Page:
+![details-page-single-county-mobile](https://github.com/sumit-jaiswal/counties-angular-reactive/blob/master/design/mobile-detail.jpg) 
 
 ### License:
 This project is licensed under the MIT license. Feel free to use it for personal or commercial use.
