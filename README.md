@@ -1,6 +1,4 @@
-### Objective
-
-## Angular 14 Counties List Web Application Sample
+### Angular Counties List Web Application Sample
 
 This is a simple web application built using Angular 14 that displays a list of counties. The application is designed to be responsive and works on desktop and mobile devices.
 
