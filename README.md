@@ -1,12 +1,12 @@
-### Angular Counties List Web Application Sample
+### Angular countries Web Application Sample
 
-This is a simple web application built using Angular 14 that displays a list of counties. The application is designed to be responsive and works on desktop and mobile devices.
+This is a simple web application built using Angular 14 that displays a list of countries. The application is designed to be responsive and works on desktop and mobile devices.
 
 ### Features:
 
-- Displays a list of counties with their names and population
+- Displays a list of countries with their names and population
 - Allows the user to search for a county by name
-- Allows the user to sort the list of counties by name or population
+- Allows the user to sort the list of countries by name or population
 - Provides a responsive layout that works on desktop and mobile devices
 
 ### Technologies used:
